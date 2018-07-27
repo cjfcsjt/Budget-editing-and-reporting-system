@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cjf.ysxt.dao.SecondSummaryTableDao">
+	<!-- 目的：为dao接口方法提供sql语句配置 -->
+	<select id="queryByDepartmentId" resultType="SecondSummaryTable" parameterType="int">
+		<!-- 具体的sql -->
+		SELECT
+			college_name,department_id,summary_budget,budget_notes,audit_time,audit_result
+		FROM
+			second_summary_table
+		WHERE
+			department_id = #{id}
+	</select>
+	
+	<select id="queryCollegeBudget" resultType="SecondSummaryTable" >
+		SELECT college_name, sum(summary_budget) as summaryBudget
+		FROM second_summary_table
+		GROUP BY college_name
+	</select>
+	
+	<select id="queryAll" resultType="SecondSummaryTable">
+		SELECT
+			college_name,department_id,summary_budget,budget_notes,audit_time,audit_result
+		FROM
+			second_summary_table
+		ORDER BY
+			department_id
+		LIMIT #{offset}, #{limit}
+	</select>
+	
+	<select id="queryByCollegeName" resultType="SecondSummaryTable" parameterType="String">
+		SELECT
+			college_name,department_id,summary_budget,budget_notes,audit_time,audit_result
+		FROM
+			second_summary_table
+		WHERE
+			college_name = #{name}
+	</select>
+	
+	<insert id="insertSecondSummaryTable" parameterType="com.cjf.ysxt.entity.SecondSummaryTable">
+		INSERT INTO second_summary_table (college_name,department_id,summary_budget,budget_notes,audit_time,audit_result)
+        VALUES (#{collegeName}, #{departmentId},#{summaryBudget},#{budgetNotes},#{auditTime},#{auditResult})
+	</insert>
+	
+	<update id="updateAuditResult">
+		UPDATE 
+			second_summary_table
+		SET 
+			audit_result = #{auditResult}
+		WHERE 
+			department_id = #{departmentId}
+	
+	</update>
+	
+	<update id="updateAuditResult2">
+		UPDATE 
+			second_summary_table
+		SET 
+			audit_result = #{auditResult}
+		WHERE 
+			college_name = #{collegeName}
+	
+	</update>
+	
+</mapper>

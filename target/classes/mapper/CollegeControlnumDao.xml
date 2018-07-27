@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cjf.ysxt.dao.CollegeControlnumDao">
+	<!-- 目的：为dao接口方法提供sql语句配置 -->
+	
+	
+	<select id="queryAll" resultType="CollegeControlnum">
+		SELECT
+			college_name,budget_control_num,notes
+		FROM
+			college_controlnum
+		ORDER BY
+			college_name
+		LIMIT #{offset}, #{limit}
+	</select>
+	
+	
+	
+	<select id="queryByCollegeName" resultType="CollegeControlnum" parameterType="String">
+		SELECT
+			college_name,budget_control_num,notes
+		FROM
+			college_controlnum
+		WHERE
+			college_name = #{name}
+	</select>
+	
+	
+	
+	<insert id="insertCollegeControlnum" parameterType="com.cjf.ysxt.entity.CollegeControlnum">
+		INSERT INTO college_controlnum (college_name,budget_control_num,notes)
+        VALUES (#{collegeName}, #{budgetControlNum},#{notes})
+	</insert>
+</mapper>

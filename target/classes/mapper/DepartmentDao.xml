@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cjf.ysxt.dao.DepartmentDao">
+	<!-- 目的：为dao接口方法提供sql语句配置 -->
+	<select id="queryByDepartmentId" resultType="Department" parameterType="int">
+		<!-- 具体的sql -->
+		SELECT
+			iddepartment,name,head,tel,college_name,depart_state
+		FROM
+			department
+		WHERE
+			iddepartment = #{id}
+	</select>
+	
+	<select id="queryAll" resultType="Department">
+		SELECT
+			iddepartment,name,head,tel,college_name,depart_state
+		FROM
+			department
+		ORDER BY
+			iddepartment
+		LIMIT #{offset}, #{limit}
+	</select>
+	
+	<select id="queryByName" resultType="Department">
+		SELECT
+			iddepartment,name,head,tel,college_name,depart_state
+		FROM
+			department
+		WHERE
+			name = #{departmentName} and college_name=#{collegeName}
+	</select>
+	
+	<select id="queryByCollegeName" resultType="Department" parameterType="String">
+		SELECT
+			iddepartment,name,head,tel,college_name,depart_state
+		FROM
+			department
+		WHERE
+			college_name = #{name}
+	</select>
+	
+	
+	<insert id="insertDepartment" parameterType="com.cjf.ysxt.entity.Department">
+		INSERT INTO department (name,head,tel,college_name,depart_state)
+        VALUES ( #{name},#{head},#{tel},#{collegeName},#{departState})
+	</insert>
+	
+	<delete id="deleteDepartment">
+		DELETE FROM 
+			department 
+		WHERE 
+			name = #{departmentName} AND college_name = #{collegeName}
+	</delete>
+</mapper>

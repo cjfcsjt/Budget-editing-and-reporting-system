@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cjf.ysxt.dao.AcquisitionTableDao">
+	<!-- 目的：为dao接口方法提供sql语句配置 -->
+	
+	<select id="queryByAcquisitionTableId" resultType="AcquisitionTable" parameterType="int">
+		<!-- 具体的sql -->
+		SELECT
+			idacquisitionTable,college_name,department_id,project_id,budget_proposal,notes,audit_time,audit_result
+		FROM
+			acquisition_table
+		WHERE
+			idacquisitionTable = #{id}
+	</select>
+	
+	<select id="queryAll" resultType="AcquisitionTable">
+		SELECT
+			idacquisitionTable,college_name,department_id,project_id,budget_proposal,notes,audit_time,audit_result
+		FROM
+			acquisition_table
+		ORDER BY
+			idacquisitionTable
+		LIMIT #{offset}, #{limit}
+	</select>
+	
+	
+	
+	<select id="queryByCollegeName" resultType="AcquisitionTable" parameterType="String">
+		SELECT
+			idacquisitionTable,college_name,department_id,project_id,budget_proposal,notes,audit_time,audit_result
+		FROM
+			acquisition_table
+		WHERE
+			college_name = #{name}
+	</select>
+	
+	<select id="queryBadStatus" resultType="AcquisitionTable" >
+		SELECT
+			idacquisitionTable,college_name,department_id,project_id,budget_proposal,notes,audit_time,audit_result
+		FROM
+			acquisition_table
+		WHERE
+			college_name = #{collegeName} and audit_result=#{auditResult}
+	</select>
+	
+	<select id="queryByDepartmentId" resultType="AcquisitionTable" parameterType="int">
+		SELECT
+			idacquisitionTable,college_name,department_id,project_id,budget_proposal,notes,audit_time,audit_result
+		FROM
+			acquisition_table
+		WHERE
+			department_id = #{id}
+	</select>
+	
+	
+	<select id="queryByProjectId" resultType="AcquisitionTable" parameterType="int">
+		SELECT
+			idacquisitionTable,college_name,department_id,project_id,budget_proposal,notes,audit_time,audit_result
+		FROM
+			acquisition_table
+		WHERE
+			project_id = #{id}
+	</select>
+	
+	<select id="queryByDC" resultType="AcquisitionTable" >
+		SELECT
+			idacquisitionTable,college_name,department_id,project_id,budget_proposal,notes,audit_time,audit_result
+		FROM
+			acquisition_table
+		WHERE
+			college_name = #{collegeName} AND department_id = #{departmentId}
+	</select>
+	
+	<select id="querySummaryBudget" resultType="AcquisitionTable" >
+		SELECT
+			idacquisitionTable,college_name,department_id,project_id,sum(budget_proposal) as budget_proposal,notes,audit_time,audit_result
+		FROM
+			acquisition_table
+		WHERE
+			college_name = #{collegeName}
+		GROUP BY
+			college_name,department_id
+	</select>
+	
+	
+	<select id="queryByPDC" resultType="AcquisitionTable" >
+		SELECT
+			idacquisitionTable,college_name,department_id,project_id,budget_proposal,notes,audit_time,audit_result
+		FROM
+			acquisition_table
+		WHERE
+			college_name = #{collegeName} AND department_id = #{departmentId} AND project_id = #{projectId}
+	</select>
+	
+	<insert id="insertAcquisitionTable" parameterType="com.cjf.ysxt.entity.AcquisitionTable">
+		INSERT INTO acquisition_table (idacquisitionTable,college_name,department_id,project_id,budget_proposal,notes,audit_time,audit_result)
+        VALUES (#{idacquisitionTable}, #{collegeName},#{departmentId},#{projectId},#{budgetProposal},#{notes},
+        #{auditTime},#{auditResult})
+	</insert>
+	
+	<update id="updateAcquisitionTable">
+		UPDATE 
+			acquisition_table 
+		SET 
+			budget_proposal = #{budgetProposal}
+		WHERE 
+			college_name = #{collegeName} AND department_id = #{departmentId} AND project_id = #{projectId}
+	
+	</update>
+	
+	<update id="updateAuditResult">
+		UPDATE 
+			acquisition_table 
+		SET 
+			audit_result = #{auditResult}
+		WHERE 
+			college_name = #{collegeName} AND department_id = #{departmentId} AND project_id = #{projectId}
+	
+	</update>
+</mapper>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cjf.ysxt.dao.CollegeDao">
+	<!-- 目的：为dao接口方法提供sql语句配置 -->
+	<select id="queryByCollegeId" resultType="College" parameterType="int">
+		<!-- 具体的sql -->
+		SELECT
+			idcollege,name,address,head,college_state
+		FROM
+			college
+		WHERE
+			idcollege = #{id}
+	</select>
+	
+	<select id="queryAll" resultType="College">
+		SELECT
+			idcollege,name,address,head,college_state
+		FROM
+			college
+		ORDER BY
+			idcollege
+		LIMIT #{offset}, #{limit}
+	</select>
+	
+	<select id="queryByCollegeName" resultType="College" parameterType="String">
+		SELECT
+			idcollege,name,address,head,college_state
+		FROM
+			college
+		WHERE
+			name = #{name}
+	</select>
+	
+	<insert id="insertCollege" parameterType="com.cjf.ysxt.entity.College">
+		INSERT INTO college (idcollege,name,address,head,college_state)
+        VALUES (#{idcollege},#{name},#{address},#{head},#{collegeState})
+	</insert>
+	
+	<delete id="deleteCollege">
+		DELETE FROM 
+			college 
+		WHERE 
+			name = #{collegeName}
+	</delete>
+</mapper>

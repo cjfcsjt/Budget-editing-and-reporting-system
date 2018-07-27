@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cjf.ysxt.dao.FirstSummaryTableDao">
+	<!-- 目的：为dao接口方法提供sql语句配置 -->
+	
+	
+	<select id="queryAll" resultType="FirstSummaryTable">
+		SELECT
+			department_id,college_name,summary_budget,notes,audit_time,audit_result
+		FROM
+			first_summary_table
+		ORDER BY
+			department_id
+		LIMIT #{offset}, #{limit}
+	</select>
+	
+	<select id="queryByDC" resultType="FirstSummaryTable" >
+		SELECT
+			department_id,college_name,summary_budget,notes,audit_time,audit_result
+		FROM
+			first_summary_table
+		WHERE
+			college_name = #{collegeName} AND department_id = #{departmentId}
+	</select>
+	
+	<select id="queryCollegeBudget" resultType="FirstSummaryTable" >
+		SELECT college_name, sum(summary_budget) as summaryBudget
+		FROM first_summary_table
+		GROUP BY college_name
+	</select>
+	
+	<select id="queryByCollegeName" resultType="FirstSummaryTable" parameterType="String">
+		SELECT
+			department_id,college_name,summary_budget,notes,audit_time,audit_result
+		FROM
+			first_summary_table
+		WHERE
+			college_name = #{name}
+	</select>
+	
+	<select id="queryByDepartmentId" resultType="FirstSummaryTable" parameterType="int">
+		SELECT
+			department_id,college_name,summary_budget,notes,audit_time,audit_result
+		FROM
+			first_summary_table
+		WHERE
+			department_id = #{id}
+	</select>
+	
+	<insert id="insertFirstSummaryTable" parameterType="com.cjf.ysxt.entity.FirstSummaryTable">
+		INSERT INTO first_summary_table (department_id,college_name,summary_budget,notes,audit_time,audit_result)
+        VALUES (#{departmentId}, #{collegeName},#{summaryBudget},#{notes},#{auditTime},#{auditResult})
+	</insert>
+	
+	<update id="updateAuditResult">
+		UPDATE 
+			first_summary_table
+		SET 
+			audit_result = #{auditResult}
+		WHERE 
+			department_id = #{departmentId}
+	
+	</update>
+	
+	<update id="updateAuditResult2">
+		UPDATE 
+			first_summary_table
+		SET 
+			audit_result = #{auditResult}
+		WHERE 
+			college_name = #{collegeName}
+	
+	</update>
+</mapper>

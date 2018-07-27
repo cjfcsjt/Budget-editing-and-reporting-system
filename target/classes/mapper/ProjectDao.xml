@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cjf.ysxt.dao.ProjectDao">
+	<!-- 目的：为dao接口方法提供sql语句配置 -->
+	<select id="queryByProjectId" resultType="Project" parameterType="int">
+		<!-- 具体的sql -->
+		SELECT
+			idproject,name
+		FROM
+			project
+		WHERE
+			idproject = #{id}
+	</select>
+	
+	<select id="queryAll" resultType="Project">
+		SELECT
+			idproject,name
+		FROM
+			project
+		ORDER BY
+			idproject
+		LIMIT #{offset}, #{limit}
+	</select>
+	
+	<select id="queryByProjectName" resultType="Project" parameterType="String">
+		SELECT
+			idproject,name
+		FROM
+			project
+		WHERE
+			name = #{name}
+	</select>
+	
+	<insert id="insertProject" parameterType="com.cjf.ysxt.entity.Project">
+		INSERT INTO project (name)
+        VALUES ( #{name})
+	</insert>
+</mapper>

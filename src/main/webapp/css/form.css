@@ -1,0 +1,367 @@
+@charset "UTF-8";
+html{   
+    width: 100%;   
+    height: 100%;   
+    overflow: hidden;   
+    font-style: sans-serif;   
+}   
+body{   
+    width: 100%;   
+    height: 100%;   
+    font-family: 'Open Sans',sans-serif;   
+    margin: 0;  
+    backgroud-color: red; 
+}  
+#tab{
+	width:1350px; 
+    padding:20px 0px;
+    margin:0px;
+    float:left;
+}
+#nav{
+	width:200px; 
+	height:250px;
+	float:left;
+}
+#nav ul{
+	float:left;
+	list-style:none; 
+	width:200px;
+	height:500px;
+	margin:0px 0px;
+	padding:0px 0px;
+	line-height:20px; 
+			
+		   /*容器右部粉色线*/ 
+}
+#nav ul li{
+	background:#FFF4F4;
+	cursor:pointer;/*鼠标放到上面的形状，pointer是小手*/ 
+	color:#730000;
+	list-style:none; 
+	text-align: center;
+	height:22px; 
+	/*line-height:29px;*/
+	padding:10px 0px; /*前一个上下，后一个左右*/ 
+	margin:0px 0px;
+	border-bottom:1px solid #FFFFFF; 
+	border-left:1px solid #FFFFFF; 
+	/*position: relative;*/
+}
+#nav ul li:hover{/*li被覆盖的时候，同时修改边框顶线和底线*/ 
+	background:#FFEAEA;
+	color:#920000;
+	-moz-border-radius-bottomleft:6px;-webkit-border-bottom-left-radius:6px;-khtml-border-bottom-left-radius:6px;border-bottom-left-radius:6px;
+	-moz-border-radius-bottomright:6px;-webkit-border-bottom-right-radius:6px;-khtml-border-bottom-right-radius:6px;border-bottom-right-radius:6px;
+/*	-moz-border-radius-topleft:6px;-webkit-border-top-left-radius:6px;-khtml-border-top-left-radius:6px;border-top-left-radius:6px;
+	-moz-border-radius-topright:6px;-webkit-border-top-right-radius:6px;-khtml-border-top-right-radius:6px;border-top-right-radius:6px;*/
+	border-top:1px solid #ffeaeb; 
+	border-bottom:1px solid #ffeaeb; 
+	border-left:1px solid #ffeaeb; }
+#nav ul li.on{/*li被点击的时候，同时修改边框顶线和底线*/ 
+	background:#920000;
+	color:#FFFFFF;
+	text-align: center;
+	-moz-border-radius-bottomleft:6px;-webkit-border-bottom-left-radius:6px;-khtml-border-bottom-left-radius:6px;border-bottom-left-radius:6px;
+	-moz-border-radius-bottomright:6px;-webkit-border-bottom-right-radius:6px;-khtml-border-bottom-right-radius:6px;border-bottom-right-radius:6px;
+/*	-moz-border-radius-topleft:6px;-webkit-border-top-left-radius:6px;-khtml-border-top-left-radius:6px;border-top-left-radius:6px;
+	-moz-border-radius-topright:6px;-webkit-border-top-right-radius:6px;-khtml-border-top-right-radius:6px;border-top-right-radius:6px;*/
+	border-top:1px solid #FFBBBC; 
+	border-bottom:1px solid #FFBBBC; 
+	border-left:1px solid #FFBBBC; }
+#tnav{
+	height:500px;
+	width:1120px; 
+	line-height:24px;		   
+	padding:0px;
+	float:right;
+}
+#tnav div{
+	margin:0px 0px;
+	padding:0px 20px 0px 0px;
+	height:400px;
+	/*border:1px solid #336699;*/
+	border-left:#336699; 
+}
+.hide{display:none;}
+.ul_bg{
+	background:#fffafa;
+}
+
+#divWrite{
+	height: auto;
+	width: 400px;
+	text-align:right;
+	background-color: white;
+	position: absolute;  
+	padding:0px 10px 7px 10px; 
+	border: 1px solid #c0c0c0;
+	top: 50%;   
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);   
+	-moz-transform: translate(-50%, -50%);   
+	-ms-transform: translate(-50%, -50%);   
+	-o-transform: translate(-50%, -50%);   
+	transform: translate(-50%, -50%); 
+	-moz-border-radius-topleft:6px;-webkit-border-top-left-radius:6px;-khtml-border-top-left-radius:6px;border-top-left-radius:6px;
+	-moz-border-radius-topright:6px;-webkit-border-top-right-radius:6px;-khtml-border-top-right-radius:6px;border-top-right-radius:6px;
+	z-index: 3; 
+}
+
+#write_reason{
+	height: 200px;
+	width: 380px;
+	border: 1px solid #c0c0c0;
+	background:#ebebeb;
+	padding:3px 10px 3px 10px; 
+}
+
+#divId{
+	height: auto;
+	width: 400px;
+	text-align:right;
+	background-color: white;
+	position: absolute;  
+	padding:0px 7px 7px 7px; 
+	border: 1px solid #c0c0c0;
+	top: 50%;   
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);   
+	-moz-transform: translate(-50%, -50%);   
+	-ms-transform: translate(-50%, -50%);   
+	-o-transform: translate(-50%, -50%);   
+	transform: translate(-50%, -50%); 
+	-moz-border-radius-topleft:6px;-webkit-border-top-left-radius:6px;-khtml-border-top-left-radius:6px;border-top-left-radius:6px;
+	-moz-border-radius-topright:6px;-webkit-border-top-right-radius:6px;-khtml-border-top-right-radius:6px;border-top-right-radius:6px;
+	z-index: 3; 
+}  
+
+#divId a .div_bt{
+	width: 50dp;   
+    height: 30dp;   
+    display: block;   
+    background-color: #dfdfdf;   
+    border: 1px solid #c0c0c0;     
+    padding:5px 10px 5px 10px;   
+    font-size: 15px;   
+    
+    line-height: normal;   
+    border-radius: 5px;  
+    margin: 0;   
+}
+
+#divId a .div_bt:hover {
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.24),0 4px 8px 0 rgba(0,0,0,0.19);
+}
+
+/* #divId{
+	width:580px;
+	height:auto;
+	border:1px solid black; 
+	position:absolute; 
+	left:260px; 
+	top:180px;
+	background:#ffffff;
+} */
+
+.dialog_title
+{
+	width:auto;
+	height:35px;
+	font-size: 17px;
+	border-top: 1px solid #808080;
+	border-right: 1px solid #808080;
+	border-left:1px solid #808080;
+	padding:5px 0px 0px 0px;
+	background:#dfdfdf;
+	text-align: center;
+	text-shadow:1px 1px #F2F8FC;
+	-moz-border-radius-topleft:6px;-webkit-border-top-left-radius:6px;-khtml-border-top-left-radius:6px;border-top-left-radius:6px;
+	-moz-border-radius-topright:6px;-webkit-border-top-right-radius:6px;-khtml-border-top-right-radius:6px;border-top-right-radius:6px;
+} 
+
+/* 该div用于覆盖整个页面，使页面不能点击这个div的z-index大于body */
+#bg_fuceng{
+background-color: gray;
+/* 遮罩透明度 */
+opacity: 0.7;
+/* 遮罩大小，正常的100% 100% 就可以 */
+width: 105%;
+height: 108%;
+/* 层级高于原body，低于要展示的对话框 */
+z-index: 2;
+/* 保证遮罩的位置遮住整个页面 */
+position: absolute;   
+top: 0%;  
+left: 0%; 
+/* 初始状态先隐藏起来 */
+}
+
+.rounded-corner
+{
+	margin:0px;
+	width:100%; 
+	text-align: left;
+	border-collapse: collapse;
+}
+.rounded-corner th
+{
+	padding: 8px;
+	font-weight: bold;
+	font-size:14px;
+	color: #000000;
+	border-right: 1px solid #fff;
+	background: #FFEAEA; text-shadow:1px 1px #F2F8FC;
+}
+.rounded-corner tr.odd td
+{
+	padding: 8px;
+	font: 16px/100% Arial, Helvetica, sans-serif;
+	background: #FFFFFF;
+	border-top: 1px solid #fff;
+	border-right: 1px solid #fff;
+	color: #090909;
+}
+.rounded-corner tr.even td
+{
+	padding: 8px;
+	font: 16px/100% Arial, Helvetica, sans-serif;
+	background: #FFF2F2;
+	border-top: 1px solid #fff;
+	border-right: 1px solid #fff;
+	color: #090909;
+}
+.rounded-corner tfoot td
+{
+	background: #FFEAEA; font-size:14px;padding:8px 8px 8px 15px;
+	-moz-border-radius-bottomleft:6px;-webkit-border-bottom-left-radius:6px;-khtml-border-bottom-left-radius:6px;border-bottom-left-radius:6px;
+	-moz-border-radius-bottomright:6px;-webkit-border-bottom-right-radius:6px;-khtml-border-bottom-right-radius:6px;border-bottom-right-radius:6px;
+}
+.rounded-corner tbody tr:hover td
+{
+	background: #FFEAEA;
+}
+select{
+	background: #F7E6E6;
+}
+
+.short-form
+{
+	margin:0px;
+	width:auto; 
+	text-align: center;
+	border-collapse: collapse;
+}
+.short-form th
+{
+	padding: 8px;
+	text-align: center;
+	font-weight: bold;
+	font-size:14px;
+	color: #000000;
+	border-right: 1px solid #fff;
+	background: #FFEAEA; text-shadow:1px 1px #F2F8FC;
+}
+.short-form tr.odd td
+{
+	width: 150px;
+	text-align: center;
+	padding: 8px;
+	font: 16px/100% Arial, Helvetica, sans-serif;
+	background: #FFFFFF;
+	border-top: 1px solid #fff;
+	border-right: 1px solid #fff;
+	color: #161616;
+}
+.short-form tr.even td
+{
+	width: 150px;
+	text-align: center;
+	padding: 8px;
+	background: #FFF2F2;
+	font: 16px/100% Arial, Helvetica, sans-serif;
+	border-top: 1px solid #fff;
+	border-right: 1px solid #fff;
+	color: #161616;
+}
+.short-form tfoot td
+{
+	background: #FFEAEA; font-size:14px;padding:8px 8px 8px 15px;
+	-moz-border-radius-bottomleft:6px;-webkit-border-bottom-left-radius:6px;-khtml-border-bottom-left-radius:6px;border-bottom-left-radius:6px;
+	-moz-border-radius-bottomright:6px;-webkit-border-bottom-right-radius:6px;-khtml-border-bottom-right-radius:6px;border-bottom-right-radius:6px;
+}
+.short-form tbody tr:hover td
+{
+	background: #FFEAEA;
+}
+
+.input-line{
+	color: #000080;
+	font-size:15px;
+	text-decoration :underline;
+}
+.input_bg{
+	border: 1px solid #d3d3d3;
+	height: 20px;
+	border-radius: 4px;
+	padding-left: 3px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+}
+.input_bg:focus{
+	border-color: #66afe9;
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+}
+
+
+.white {
+	color: #606060;
+	border: solid 1px #b00000;
+	background: #fff;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
+	background: -moz-linear-gradient(top,  #fff,  #ededed);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed');
+}
+.white:hover {
+	background: #f7f7f7;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcdcdc));
+	background: -moz-linear-gradient(top,  #fff,  #dcdcdc);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dcdcdc');
+}
+.white:active {
+	color: #999;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#fff));
+	background: -moz-linear-gradient(top,  #ededed,  #fff);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#ffffff');
+}
+.button {
+	display: inline-block;
+	zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+	*display: inline;
+	vertical-align: baseline;
+	margin: 0 2px;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 14px/100% Arial, Helvetica, sans-serif;
+	padding: .5em 2em .55em;
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+.button:hover {
+	text-decoration: none;
+}
+.button:active {
+	position: relative;
+	top: 1px;
+}
